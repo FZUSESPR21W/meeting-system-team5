@@ -10,6 +10,12 @@
               </el-aside>
               <el-main>
                 <el-table :data="tableDate">
+                  <el-table-column prop="username" label="用户ID" width="300">
+                  </el-table-column>
+                  <el-table-column prop="account" label="账号" width="300">
+                  </el-table-column>
+                  <el-table-column prop="register_date" label="注册时间">
+                  </el-table-column>
                 </el-table>
               </el-main>
           </el-container>
