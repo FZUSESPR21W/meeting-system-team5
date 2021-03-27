@@ -1,11 +1,6 @@
-<template>
-    
+<template>   
 <el-container>
-  
-<el-row type="flex" class="row-bg" justify="space-between">
-  <el-col :span="12">会议</el-col>
-  <el-col :span="12">主席</el-col>
-</el-row>
+    <topline/> 
 
   <div id="sub">
     <p>会议人数</p>
@@ -40,7 +35,9 @@
 
 
 <script>
+     import topline from '../component/topline'
   export default {
+      components:{topline},
     data() {
       return {
         tableData: [{
@@ -81,11 +78,15 @@
     
   }
 
-  .el-header {
-    background-color: black;
-    
-    text-align: left;
-    line-height: 60px;
+  #user
+  {
+      float:right;
+      margin-right: 30px;
+  }
+  #meet
+  {
+      float: left;
+      margin-left: 30px;
   }
 
 </style>
