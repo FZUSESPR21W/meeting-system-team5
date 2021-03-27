@@ -1,15 +1,23 @@
 <template>
   <div id="app">
-    <el-button type="warning">警告按钮</el-button>
+    <page/>
+    <Animation/>
+    <Nav/>
   </div>
 </template>
 
 <script>
 
+import Animation from './component/secretaryPageStyle2'
+import page from './component/secretaryPageStyle1'
+import Nav from './component/Nav'
 export default {
   components: {
-
-  }
+    Animation,
+    page,
+    Nav
+  },
+  name: 'App'
 }
 </script>
 
@@ -34,4 +42,6 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+
 </style>
