@@ -18,7 +18,8 @@
 
       <el-button id="register" type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
     </el-form-item>
-    <el-link type="primary">已有账号,重新登陆</el-link>
+              <router-link to="/login"><a id="bbs">已有帐号，我要登陆</a></router-link>
+         
 
   </el-form>
     <el-dialog
@@ -31,6 +32,7 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
   </el-dialog>
+   <router-view></router-view>
 </div>
 </template>
 <script>
