@@ -1,14 +1,9 @@
-<template>
-    
+<template>   
 <el-container>
-  
-<el-row type="flex" class="row-bg" justify="space-between">
-  <el-col :span="12">会议</el-col>
-  <el-col :span="12">主席</el-col>
-</el-row>
+    <topline/> 
 
   <div id="sub">
-    <p>会议人数</p>
+    <p>会议人数:{{total}}</p>
     <p>会议列表</p>
   <el-table
     :data="tableData"
@@ -16,21 +11,13 @@
     border
     style="width: 100%">
     <el-table-column
-      prop="president"
-      label="会议主席">
-    </el-table-column>
-    <el-table-column
-      prop="name"
+      prop="title"
       label="会议议题">
       
     </el-table-column>
     <el-table-column
-      prop="peopleCount"
+      prop="num"
       label="会议人数">
-    </el-table-column>
-    <el-table-column
-      prop="time"
-      label="召开时间">
     </el-table-column>
   </el-table>
   </div>
@@ -40,33 +27,49 @@
 
 
 <script>
-  export default {
-    data() {
-      return {
+     import topline from '../component/topline'
+  import axios from 'axios'
+export default {
+  name: 'usermessage',
+  data() {
+    return {
+        total:'',
         tableData: [{
-          president: '201',
-          name: '会议1',
-          peopleCount: '20',
-          time :'2021'
-        }, {
-            president: '201',
-          name: '会议2',
-          peopleCount: '20',
-          time :'2021'
-        }, {
-             president: '201',
-          name: '会议3',
-          peopleCount: '20',
-          time :'2021'
-        }, {
-             president: '201',
-          name: '会议4',
-          peopleCount: '20',
-          time :'2021'
-        }]
-      }
+            title: "第一次会议",
+            num: ''
+          }, {
+            title: "第二次会议",
+            num: ''
+          }, {
+            title: "第三次会议",
+            num: ''
+          }]
     }
+  },
+  methods: {
+    
+    getListData(){//网络请求数据
+        axios.get('/api/v1/chairman/getnum').then((res) => {
+          this.total = res.data
+      })
+      axios.get('/api/v1/forum/getnum').then((res) => {
+        let data = res.data
+        let i = 0
+        this.tableData.map((item) => {
+            item['num'] = data[i]
+            i++;
+        })
+        console.log(this.tableData);
+      })
+    }
+  },
+  components:{
+    topline
+  },
+  created(){//模板已经编译 -- 执行请求数据的操作
+        this.getListData();
   }
+}
 </script>
 <style>
 #sub{
@@ -81,11 +84,15 @@
     
   }
 
-  .el-header {
-    background-color: black;
-    
-    text-align: left;
-    line-height: 60px;
+  #user
+  {
+      float:right;
+      margin-right: 30px;
+  }
+  #meet
+  {
+      float: left;
+      margin-left: 30px;
   }
 
 </style>
