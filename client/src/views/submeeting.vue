@@ -1,7 +1,7 @@
 <template>
 <div>
 <el-container>
-      <el-header>Header</el-header>
+      <topline/>
       <el-main>
         <div id="sub">
           <div id="sub-count">
@@ -34,30 +34,25 @@
 </template>
 
 <script>
+  import topline from '../component/topline'
+
   export default {
     name: 'submeeting',
+    
     data() {
       return {
-        input:'',
         tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
+          info_content: '2016-05-02',
         }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
+          info_content: '2016-05-04',
         }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
+          info_content: '2016-05-01',
         }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
+          info_content: '2016-05-03',
         }]
       }
-    }
+    },
+    components:{topline}
   }
 </script>
 
@@ -95,7 +90,7 @@
 
 .info{
   border-radius: 5px;
-  width:300px;
+  width:400px;
   height:35px;
   border:1px solid #000;
   float: right;
