@@ -1,29 +1,28 @@
 <template>
 <div>
   <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
-    <h3 class="login-title">欢迎登录</h3>
+    <h3 class="login-title">请输入注册信息</h3>
     <el-form-item label="账号" prop="username">
-      <el-input type="text" placeholder="请输入账号" v-model="form.username"/>
+      <el-input type="text" placeholder="请输入手机号/邮箱" v-model="form.username"/>
     </el-form-item>
     <el-form-item label="密码" prop="password">
       <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
     </el-form-item>
+     <el-form-item>
+     <el-checkbox-group v-model="checkList">
+    <el-checkbox label="分论坛1"></el-checkbox>
+    <el-checkbox label="分论坛2"></el-checkbox>
+    <el-checkbox label="分论坛3"></el-checkbox>
+   
+  </el-checkbox-group>
 
-  <el-radio-group v-model="radio"  fill="#66b1ff">
-    <el-radio :label="3" >普通用户</el-radio>
-    <el-radio :label="6">会议主席</el-radio>
-    <el-radio :label="9">分论坛主席</el-radio>
-    <el-radio :label="12">秘书</el-radio>
-  </el-radio-group>
-
-    <el-form-item>
-      <el-button id="loginButton" type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
+      <el-button id="register" type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
     </el-form-item>
-    <el-link type="primary">立即注册</el-link>
+              <router-link to="/login"><a id="bbs">已有帐号，我要登陆</a></router-link>
+         
 
   </el-form>
-
-  <el-dialog
+    <el-dialog
     title="温馨提示"
     :visible.sync="dialogVisible"
     width="30%"
@@ -33,20 +32,19 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
   </el-dialog>
+   <router-view></router-view>
 </div>
 </template>
-
 <script>
   export default {
-    name: "Login",
+    name: "login",
     data() {
       return {
         form: {
           username: '',
           password: '',
-          
         },
-        radio:3,
+     checkList: ['选中且禁用','复选框 A'],
         // 表单验证，需要在 el-form-item 元素中增加 prop 属性
         rules: {
           username: [
@@ -96,10 +94,9 @@
     margin: 0 auto 40px auto;
     color: #303133;
   }
-  #loginButton{
-    position: inherit;
-    left: -40px;
-    bottom: -5px;
+  #register{
+     position:inherit;
+    left:-45px;
+    bottom: -10px;
   }
 </style>
-
