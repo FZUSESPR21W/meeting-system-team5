@@ -19,7 +19,8 @@
     <el-form-item>
       <el-button id="loginButton" type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
     </el-form-item>
-    <el-link type="primary">立即注册</el-link>
+    <router-link to="/register"><el-link type="primary">立即注册</el-link></router-link>
+  <router-view></router-view>
 
   </el-form>
 
