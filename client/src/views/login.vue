@@ -9,7 +9,12 @@
       <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
     </el-form-item>
 
-
+  <el-radio-group v-model="radio"  fill="#66b1ff">
+    <el-radio :label="3" >普通用户</el-radio>
+    <el-radio :label="6">会议主席</el-radio>
+    <el-radio :label="9">分论坛主席</el-radio>
+    <el-radio :label="12">秘书</el-radio>
+  </el-radio-group>
 
     <el-form-item>
       <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
