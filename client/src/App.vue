@@ -1,15 +1,21 @@
 <template>
   <div id="app">
-    <el-button type="warning">警告按钮</el-button>
+    <page/>
+    <animation/>
+    <nav/>
   </div>
 </template>
 
 <script>
 
+import Animation from './component/secretaryPageStyle2'
+import page from './component/secretaryPageStyle1'
 export default {
   components: {
-
-  }
+    Animation,
+    page
+  },
+  name: 'App'
 }
 </script>
 

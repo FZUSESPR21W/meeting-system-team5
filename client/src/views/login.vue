@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'login',
-  data() {
+  data () {
     return {
 
     }
