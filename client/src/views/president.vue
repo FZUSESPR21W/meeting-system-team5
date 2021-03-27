@@ -23,3 +23,35 @@
     </el-table-column>
   </el-table>
 </template>
+
+
+
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+          president: '201',
+          name: '会议1',
+          peopleCount: '20',
+          time :'2021'
+        }, {
+            president: '201',
+          name: '会议2',
+          peopleCount: '20',
+          time :'2021'
+        }, {
+             president: '201',
+          name: '会议3',
+          peopleCount: '20',
+          time :'2021'
+        }, {
+             president: '201',
+          name: '会议4',
+          peopleCount: '20',
+          time :'2021'
+        }]
+      }
+    }
+  }
+</script>
