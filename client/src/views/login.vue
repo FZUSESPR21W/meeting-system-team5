@@ -17,7 +17,7 @@
   </el-radio-group>
 
     <el-form-item>
-      <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
+      <el-button id="loginButton" type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
     </el-form-item>
     <el-link type="primary">立即注册</el-link>
 
@@ -95,6 +95,11 @@
     text-align: center;
     margin: 0 auto 40px auto;
     color: #303133;
+  }
+  #loginButton{
+    position: inherit;
+    left: -40px;
+    bottom: -5px;
   }
 </style>
 
