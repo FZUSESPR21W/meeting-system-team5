@@ -6,7 +6,8 @@
           <a id="bbs">论坛列表</a>
           <div id="line1"></div>
           <img src="../assets/message.png" id="message">
-          <a id="msg">消息列表</a>
+          <router-link to="/usermessage"><a id="bbs">消息列表</a></router-link>
+          <router-view></router-view>
           <div id="line1"></div>
       </div>
       <div class="nav_right">
@@ -20,27 +21,30 @@
             <el-table-column
                 prop="bbs"
                 label="参加的论坛"
-                width="180">
+                width="240">
             </el-table-column>
 
             <el-table-column
                 prop="name"
                 label="论坛主席"
-                width="180">
+                width="240">
             </el-table-column>
 
             <el-table-column
                 prop="num"
-                label="会议人数">
+                label="会议人数"
+                width="240">
             </el-table-column>
 
             <el-table-column
                 prop="date"
-                label="召开时间">
+                label="召开时间"
+                width="240">
             </el-table-column>
 
         </el-table>
       </div>
+      <router-view></router-view>
   </div>
 </template>
 

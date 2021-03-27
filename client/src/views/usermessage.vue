@@ -3,7 +3,9 @@
         <topline/>
         <div class="nav_left">
           <img src="../assets/business.png" id="business">
-          <a id="bbs">论坛列表</a>
+          <router-link to="/usermeeting"><a id="bbs">论坛列表</a></router-link>
+          <router-view></router-view>
+          
           <div id="line1"></div>
           <img src="../assets/message.png" id="message">
           <a id="msg">消息列表</a>
@@ -29,7 +31,7 @@
                     </el-table-column>
                 </el-table>
                 </div>
-            </div>
+        </div>
     </div>
 </template>
 
@@ -48,7 +50,8 @@ export default {
         }, {
          title: '讨论什么',
           content: '怎么写'
-        }]
+        }],
+        radio: '1'
     }
   },
   methods: {
