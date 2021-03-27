@@ -3,14 +3,14 @@
 <!--    <el-button @click="show = !show">发布公告</el-button>-->
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="el-fade-in-linear">
+      <transition name="el-fade-in-linear" >
 <!--        <div v-show="show" class="transition-box">公告1</div>-->
         <div v-show="show" class="transition-box">
           <template>
             <div>
-              <el-card class="box-card">
+              <el-card class="box-card"  >
                 <div slot="header" class="clearfix">
-                  <span>公告：XXXX</span>
+                  <span>公告</span>
                   <el-button style="float: right; padding: 3px 0" type="text" @click="show = !show">发布</el-button>
                 </div>
                 <div v-for="o in 4" :key="o" class="text item">
@@ -26,10 +26,26 @@
 </template>
 
 <script>
+
+// import axios from 'axios'
+
 export default {
   data: () => ({
     show: true
   }),
+  // methods: {
+  //
+  //   getListData () { // 网络请求数据
+  //     axios.get('/api//v1/forum/getmsg0', {
+  //       params: {
+  //         forumid: 1
+  //       }
+  //     }).then((res) => {
+  //       this.tableData = res.data
+  //       console.log(this.tableData)
+  //     })
+  //   }
+  // },
   name: 'animation'
 }
 </script>

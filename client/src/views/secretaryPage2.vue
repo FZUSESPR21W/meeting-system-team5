@@ -14,9 +14,10 @@
     <div class = "sec_right">
       <a id="tweets">推送列表</a>
 <!--      <div id = "line1"></div>-->
-      <secretary-page-style2/>
-      <secretary-page-style2/>
-      <secretary-page-style2/>
+      <secretaryPageStyle1/>
+<!--      <secretaryPageStyle2/>-->
+<!--      <secretaryPageStyle2/>-->
+<!--      <secretaryPageStyle2/>-->
 
     </div>
 
@@ -44,7 +45,7 @@
   margin-left: 20px;
   width: 82.5%;
   height: 100%;
-  float: left;
+  float: none;
   border-radius: 10px;
 }
 
@@ -82,8 +83,9 @@
 
 <script>
 import Topline from '../component/topline'
-import secretaryPageStyle2 from '../component/secretaryPageStyle2'
+// import secretaryPageStyle2 from '../component/secretaryPageStyle2'
+import secretaryPageStyle1 from '../component/secretaryPageStyle1'
 export default {
-  components: { Topline, secretaryPageStyle2 }
+  components: { Topline, secretaryPageStyle1 }
 }
 </script>
