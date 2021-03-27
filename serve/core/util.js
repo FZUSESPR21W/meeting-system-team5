@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const {secretKey,expiresIn} = require('../config/config').sesecurity;
 const findMembers = function (instance, {
   prefix,
   specifiedType,

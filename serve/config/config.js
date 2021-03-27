@@ -2,7 +2,7 @@ module.exports = {
   //prod
   environment: 'dev',
   database:{
-    dbName: 'island',
+    dbName: 'teamwork',
     host: 'localhost',
     port: 3306,
     user: 'root',

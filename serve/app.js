@@ -1,5 +1,6 @@
 const Koa = require("koa");
 const parser = require('koa-bodyparser')
+const catchError = require('./middleware/catchexception')
 const initApp = require('./core/init')
 
 const app = new Koa();

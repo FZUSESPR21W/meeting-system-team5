@@ -5,7 +5,6 @@ class initApp{
   static init(app){
     initApp.app = app;
     initApp.initRouter()  
-    initApp.loadConfig()
   }
   // 初始化路由
   static initRouter() {

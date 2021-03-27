@@ -1,6 +1,6 @@
-const {LinValidator,Rule} = require('../../core/lin-validator');
-const {User} = require('../models/user');
-const {LoginType,ArtType} = require('../../app/lib/enum')
+const {LinValidator,Rule} = require('./lin-validator');
+const {User} = require('../model/user');
+
 class IntegetValidator extends LinValidator{
   constructor(){
     super();
@@ -44,5 +44,16 @@ class LoginValidator extends LinValidator{
   }
 }
 
+class UploadContent extends LinValidator{
+  constructor() {
+    super()
+    this.content = [
+      new Rule('isLength','不能为空', {min: 1})
+    ]
+    this.forumid = [
+      new Rule('isLength', 'id不能为空',{ min: 1})
+    ]
+  }
+}
 
-module.exports = {IntegetValidator,RegisterValidator,RegisterValidator,LoginValidator}
+module.exports = {IntegetValidator,RegisterValidator,RegisterValidator,UploadContent,LoginValidator}

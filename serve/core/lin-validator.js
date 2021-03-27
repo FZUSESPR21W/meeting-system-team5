@@ -1,7 +1,7 @@
  
 const validator = require('validator')
 const { get, last, set, cloneDeep } = require('lodash')
-const { ParameterException } = require('./http-exception')
+const { ParameterException } = require('./exception')
 const { findMembers } = require('./util')
 
 class LinValidator {

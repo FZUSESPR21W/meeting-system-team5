@@ -16,7 +16,7 @@ class ParameterException extends HttpException{
   }
 }
 
-class Success extends httpException{
+class Success extends HttpException{
   constructor(msg,errorCode){
     super()
     this.msg = msg || 'ok'
@@ -25,7 +25,7 @@ class Success extends httpException{
   }
 }
 
-class NotFound extends httpException{
+class NotFound extends HttpException{
   constructor(msg,errorCode){
     super()
     this.msg = msg || "资源未找到"
@@ -34,7 +34,7 @@ class NotFound extends httpException{
   }
 }
 
-class AuthoFailed extends httpException{
+class AuthoFailed extends HttpException{
   constructor(msg, errorCode) {
     super()
     this.code = 401

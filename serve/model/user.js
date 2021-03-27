@@ -4,13 +4,13 @@ const {Model,DataTypes} = require('sequelize')
 
 
 class User extends Model{
-  static async vetifyEmailPassword(account,password){
+  static async vetifyEmailPassword({account,password}){
     const user = await User.findOne({
       where:{
         account
       }
     })
-    if(!account){
+    if(!user){
       throw new NotFound("账号未找到")
     }
     const correct = password == user.password
@@ -18,6 +18,28 @@ class User extends Model{
       throw new AuthoFailed("密码不正确")
     }
     return user
+  }
+
+  static async addAccount({account,password}) {
+    return await User.create({
+      account,
+      password,
+      category: 0
+    })
+  }
+
+  static async countNum(){
+    const num = await User.count();
+    return num
+  }
+
+  static async getAllUser(){
+    let account = await User.findAll({
+      attributes: [
+        'account'
+      ]
+    })
+    return account
   }
 }
 User.init({
@@ -32,6 +54,9 @@ User.init({
   },
   password:{
     type: DataTypes.STRING(128),
+  },
+  category: {
+    type: DataTypes.INTEGER,
   }
 },{
   sequelize,
