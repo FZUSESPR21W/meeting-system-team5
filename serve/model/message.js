@@ -28,6 +28,14 @@ class Message extends Model{
       }
     })
   }
+  
+  static async updateState() {
+    await Message.update({state: 1},{
+      where: {
+        state: 0
+      }
+    })
+  }
 }
 Message.init({
   forumid: {

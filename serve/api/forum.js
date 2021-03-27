@@ -1,12 +1,14 @@
 const Router = require('koa-router')
 const {LoginValidator} = require('../core/validator')
 const {Message} = require('../model/message')
+const {Association} = require('../model/association')
 const {ParameterException} = require('../core/exception')
 const router = new Router({
   prefix: '/v1/forum'
 });
 
 router.get('/getnum', async(ctx) => {
+  console.log(2);
   let numArr = []
   let num;
   num = await Association.countNumByForum(1)

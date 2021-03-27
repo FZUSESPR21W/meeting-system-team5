@@ -1,10 +1,13 @@
 const {sequelize} = require('../core/db')
 const {AuthoFailed,NotFound} = require('../core/exception')
+const {Association} = require('./association')
 const {Model,DataTypes} = require('sequelize')
 
 
 class Forum extends Model{
-  
+  static async getForum(account) {
+    ctx.body =  await Association.getForumid(account);
+  }
 }
 Forum.init({
   forumid: {
