@@ -1,9 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import usermeeting from '../views/usermeeting'
+import usermessage from '../views/usermessage'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path:'/usermeeting',
+    component:usermeeting
+  },
+  {
+    path:'/usermessage',
+    component:usermessage
+  }
+  
 
 ]
 
