@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <page/>
-    <animation/>
-    <nav/>
+    <Animation/>
+    <Nav/>
   </div>
 </template>
 
@@ -10,10 +10,12 @@
 
 import Animation from './component/secretaryPageStyle2'
 import page from './component/secretaryPageStyle1'
+import Nav from './component/Nav'
 export default {
   components: {
     Animation,
-    page
+    page,
+    Nav
   },
   name: 'App'
 }
@@ -40,4 +42,6 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+
 </style>
