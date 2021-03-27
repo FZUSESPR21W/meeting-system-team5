@@ -1,21 +1,26 @@
 <template>
   <div id="app">
-    <page/>
-    <Animation/>
-    <Nav/>
+<!--    <page/>-->
+<!--    <Animation/>-->
+<!--    <Nav/>-->
+
+    <router-view></router-view>
+<!--    <SecretaryPage2/>-->
   </div>
 </template>
 
 <script>
 
-import Animation from './component/secretaryPageStyle2'
-import page from './component/secretaryPageStyle1'
-import Nav from './component/Nav'
+// import Animation from './component/secretaryPageStyle2'
+// import page from './component/secretaryPageStyle1'
+// import Nav from './component/Nav'
+import SecretaryPage2 from './views/secretaryPage2'
 export default {
   components: {
-    Animation,
-    page,
-    Nav
+    //SecretaryPage2
+    // Animation,
+    // page,
+    // Nav
   },
   name: 'App'
 }

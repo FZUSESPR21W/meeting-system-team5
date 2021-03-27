@@ -5,7 +5,7 @@
           <img src="../assets/business.png" id="business">
           <router-link to="/usermeeting"><a id="bbs">论坛列表</a></router-link>
           <router-view></router-view>
-          
+
           <div id="line1"></div>
           <img src="../assets/message.png" id="message">
           <a id="msg">消息列表</a>
@@ -37,28 +37,33 @@
 
 <script>
 import topline from '../component/topline'
+import axios from 'axios'
 export default {
   name: 'usermessage',
   data() {
     return {
-        tableData: [{
-          title: '吃什么',
-          content: '福鼎肉片'
-        }, {
-          title: '做什么',
-          content: '敲代码'
-        }, {
-         title: '讨论什么',
-          content: '怎么写'
-        }],
-        radio: '1'
+        list:[],
+        tableData: []
     }
   },
   methods: {
-
+    
+    getListData(){//网络请求数据
+      axios.get('/api/v1/forum/getmsg0', {
+        params: {
+          forumid: 1
+        }
+      }).then((res) => {
+        this.tableData = res.data
+        console.log(this.tableData);
+      })
+    }
   },
   components:{
     topline
+  },
+  created(){//模板已经编译 -- 执行请求数据的操作
+        this.getListData();
   }
 }
 </script>
