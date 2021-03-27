@@ -8,6 +8,19 @@
     <el-form-item label="密码" prop="password">
       <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
     </el-form-item>
+     <el-form-item>
+     <el-checkbox-group v-model="checkList">
+    <el-checkbox label="分论坛1"></el-checkbox>
+    <el-checkbox label="分论坛2"></el-checkbox>
+    <el-checkbox label="分论坛3"></el-checkbox>
+   
+  </el-checkbox-group>
+
+      <el-button  type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
+    </el-form-item>
+    <el-link type="primary">已有账号,重新登陆</el-link>
+
+  </el-form>
     <el-dialog
     title="温馨提示"
     :visible.sync="dialogVisible"
@@ -29,7 +42,7 @@
           username: '',
           password: '',
         },
-  
+     checkList: ['选中且禁用','复选框 A'],
         // 表单验证，需要在 el-form-item 元素中增加 prop 属性
         rules: {
           username: [
