@@ -3,10 +3,10 @@
   <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
     <h3 class="login-title">欢迎登录</h3>
     <el-form-item label="账号" prop="username">
-      <el-input type="text" placeholder="请输入账号" v-model="form.username"/>
+      <el-input type="text" placeholder="请输入账号" v-model="account"/>
     </el-form-item>
     <el-form-item label="密码" prop="password">
-      <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
+      <el-input type="password" placeholder="请输入密码" v-model="password"/>
     </el-form-item>
 
   <el-radio-group v-model="radio"  fill="#66b1ff">
@@ -17,10 +17,9 @@
   </el-radio-group>
 
     <el-form-item>
-      <el-button id="loginButton" type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
+      <el-button id="loginbutton" type="primary" v-on:click="login">登录</el-button>
     </el-form-item>
-    <router-link to="/register"><el-link type="primary">立即注册</el-link></router-link>
-  <router-view></router-view>
+    <router-link  to="/register">立即注册</router-link>
 
   </el-form>
 
@@ -34,14 +33,18 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
   </el-dialog>
+  <router-view></router-view>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
   export default {
     name: "Login",
     data() {
       return {
+        account: '',
+        password: '',
         form: {
           username: '',
           password: '',
@@ -74,6 +77,18 @@
             return false;
           }
         });
+      },
+      login() {
+        let obj = {
+          account: this.account,
+          password: this.password
+        }
+        axios.post('/api/v1/user/login',obj).then((res) => {
+          let data = res.data;
+          if (data.error_code == 0){
+            this.$router.push('')
+          }
+        })
       }
 
     }
@@ -97,10 +112,9 @@
     margin: 0 auto 40px auto;
     color: #303133;
   }
-  #loginButton{
-    position: inherit;
-    left: -40px;
-    bottom: -5px;
+  #loginbutton{
+     position:inherit;
+    left:-45px;
+    bottom: -10px;
   }
 </style>
-
