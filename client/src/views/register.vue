@@ -9,16 +9,18 @@
       <el-input type="password" placeholder="请输入密码" v-model="password"/>
     </el-form-item>
      <el-form-item>
-     <el-checkbox-group v-model="checkList">
+     <el-checkbox-group v-model="checkList" id="checkbox">
     <el-checkbox label="1">分论坛1</el-checkbox>
     <el-checkbox label="2">分论坛2</el-checkbox>
     <el-checkbox label="3">分论坛3</el-checkbox>
    
-  </el-checkbox-group>
+    </el-checkbox-group>
 
       <el-button id="register" type="primary" v-on:click="register">注册</el-button>
     </el-form-item>
-              <router-link to="/login"><a id="bbs">已有账号请登录</a></router-link>
+              <router-link to="/login">
+              <br>
+              <a id="bbs">已有账号请登录</a></router-link>
           
 
   </el-form>
@@ -86,9 +88,10 @@ import axios from 'axios'
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .login-box {
     border: 1px solid #DCDFE6;
+    height: 400px;
     width: 500px;
     margin: 180px auto;
     padding: 35px 35px 15px 35px;
@@ -104,6 +107,14 @@ import axios from 'axios'
     color: #303133;
   }
   #register{
+    margin-top: 30px;
+     position:inherit;
+    left:-45px;
+    bottom: -10px;
+    margin-bottom: 30px;
+  }
+  #checkbox{
+    margin-top: 30px;
      position:inherit;
     left:-45px;
     bottom: -10px;

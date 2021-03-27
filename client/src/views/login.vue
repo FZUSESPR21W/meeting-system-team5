@@ -8,17 +8,22 @@
     <el-form-item label="密码" prop="password">
       <el-input type="password" placeholder="请输入密码" v-model="password"/>
     </el-form-item>
-
+  <div>
+    <br>
+  </div>
   <el-radio-group v-model="radio"  fill="#66b1ff">
     <el-radio :label="3" >普通用户</el-radio>
     <el-radio :label="6">会议主席</el-radio>
     <el-radio :label="9">分论坛主席</el-radio>
     <el-radio :label="12">秘书</el-radio>
   </el-radio-group>
-
+  <div>
+    <br>
+  </div>
     <el-form-item>
       <el-button id="loginbutton" type="primary" v-on:click="login">登录</el-button>
     </el-form-item>
+    <br>
     <router-link  to="/register">立即注册</router-link>
 
   </el-form>
@@ -95,7 +100,7 @@ import axios from 'axios'
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   .login-box {
     border: 1px solid #DCDFE6;
     width: 500px;
@@ -113,8 +118,8 @@ import axios from 'axios'
     color: #303133;
   }
   #loginbutton{
-     position:inherit;
     left:-45px;
     bottom: -10px;
+    margin-bottom: 20px;
   }
 </style>
