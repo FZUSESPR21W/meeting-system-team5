@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import usermeeting from '../views/usermeeting'
 import usermessage from '../views/usermessage'
 import secretaryPage2 from '../views/secretaryPage2'
+import secretaryUser from '../views/secretaryUser'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/secretaryPage2',
     component: secretaryPage2
+  },
+  {
+    path: '/secretaryUser',
+    component: secretaryUser
   }
 ]
 

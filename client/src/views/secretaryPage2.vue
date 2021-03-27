@@ -3,17 +3,23 @@
   <topline/>
     <div class="sec_left">
       <img src="../assets/business.png" id="business">
-      <router-link to="/用户信息页面"><a id="users">用户信息</a></router-link>
+      <router-link to="/secretaryUser"><a id="users">用户信息</a></router-link>
       <router-view></router-view>
       <div id="line1"></div>
       <img src="../assets/message.png" id="message">
       <a id="tweet">推送发布</a>
       <div id="line2"></div>
+
     </div>
     <div class = "sec_right">
       <a id="tweets">推送列表</a>
+<!--      <div id = "line1"></div>-->
       <secretary-page-style2/>
+      <secretary-page-style2/>
+      <secretary-page-style2/>
+
     </div>
+
   </div>
 </template>
 
@@ -36,7 +42,7 @@
   margin-top: 20px;
   border: rgb(102,102,102) 2px solid;
   margin-left: 20px;
-  width: 83%;
+  width: 82.5%;
   height: 100%;
   float: left;
   border-radius: 10px;
