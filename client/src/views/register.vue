@@ -92,5 +92,9 @@
     margin: 0 auto 40px auto;
     color: #303133;
   }
-  
+  #register{
+     position:inherit;
+    left:-45px;
+    bottom: -10px;
+  }
 </style>
