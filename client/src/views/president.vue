@@ -1,4 +1,15 @@
 <template>
+    
+<el-container>
+  
+<el-row type="flex" class="row-bg" justify="space-between">
+  <el-col :span="12">会议</el-col>
+  <el-col :span="12">主席</el-col>
+</el-row>
+
+  <div id="sub">
+    <p>会议人数</p>
+    <p>会议列表</p>
   <el-table
     :data="tableData"
     height="600"
@@ -22,6 +33,8 @@
       label="召开时间">
     </el-table-column>
   </el-table>
+  </div>
+  </el-container>
 </template>
 
 
@@ -55,3 +68,24 @@
     }
   }
 </script>
+<style>
+#sub{
+    text-align: left;
+    margin: 20px;
+    border:1px solid #a9a9a9;
+    height: 850px;
+}
+
+.el-row {
+    margin-bottom: 20px;
+    
+  }
+
+  .el-header {
+    background-color: black;
+    
+    text-align: left;
+    line-height: 60px;
+  }
+
+</style>
