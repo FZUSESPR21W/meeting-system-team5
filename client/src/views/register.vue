@@ -16,7 +16,7 @@
    
   </el-checkbox-group>
 
-      <el-button  type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
+      <el-button id="register" type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
     </el-form-item>
     <el-link type="primary">已有账号,重新登陆</el-link>
 
@@ -92,5 +92,9 @@
     margin: 0 auto 40px auto;
     color: #303133;
   }
-  
+  #register{
+     position:inherit;
+    left:-45px;
+    bottom: -10px;
+  }
 </style>
