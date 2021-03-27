@@ -5,7 +5,7 @@
           <img src="../assets/business.png" id="business">
           <router-link to="/usermeeting"><a id="bbs">论坛列表</a></router-link>
           <router-view></router-view>
-          
+
           <div id="line1"></div>
           <img src="../assets/message.png" id="message">
           <a id="msg">消息列表</a>
