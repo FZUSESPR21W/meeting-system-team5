@@ -19,8 +19,7 @@
     <el-form-item>
       <el-button id="loginbutton" type="primary" v-on:click="login">登录</el-button>
     </el-form-item>
-    <router-link to="/register"><el-link type="primary">立即注册</el-link></router-link>
-  <router-view></router-view>
+    <router-link  to="/register">立即注册</router-link>
 
   </el-form>
 
@@ -113,10 +112,9 @@ import axios from 'axios'
     margin: 0 auto 40px auto;
     color: #303133;
   }
-  #login{
+  #loginbutton{
      position:inherit;
     left:-45px;
     bottom: -10px;
   }
 </style>
-
