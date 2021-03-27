@@ -6,13 +6,13 @@
         <div id="sub">
           <div id="sub-count">
             <p class="subTitle">会议议题<br/></p>
-            <p id="meeting-count">会议总人数：</p>
+            <p id="meeting-count">会议总人数：{{total}}</p>
           </div>
           <div class="line"></div>
           <div id="sub-info">     
             <span class="subTitle">会议消息</span>
-            <el-button type="primary" id="send">发布消息</el-button>
-            <input type="text" name="infoInput" class="info"/>
+            <el-button type="primary" id="send" @click="postInfo">发布消息</el-button>
+            <input type="text" name="infoInput" class="info" v-model="content"/>
             <div>
               <br/>
               <el-table
@@ -20,7 +20,7 @@
                 stripe
                 style="width: 100%">
                 <el-table-column
-                  prop="info_content"
+                  prop="content"
                   label="消息内容">
                 </el-table-column>
               </el-table>
@@ -35,24 +35,57 @@
 
 <script>
   import topline from '../component/topline'
+  import axios from 'axios'
 
   export default {
     name: 'submeeting',
     
     data() {
       return {
-        tableData: [{
-          info_content: '2016-05-02',
-        }, {
-          info_content: '2016-05-04',
-        }, {
-          info_content: '2016-05-01',
-        }, {
-          info_content: '2016-05-03',
-        }]
+        content: '',
+        total:'',
+        tableData: []
+        //tableData: [{info_content:'123'}]
       }
     },
-    components:{topline}
+    
+    methods: {
+    getPeopleCount(){
+      axios.get('/api/v1/forum/getnum').then((res) => {
+        this.total = res.data[0]
+        console.log(this.total);
+      })
+    },
+   
+    getListData(){
+      axios.get('/api/v1/forum/getmsg0', {
+        params: {
+          forumid: 1
+        }
+      }).then((res) => {
+        this.tableData = res.data
+        
+      })
+    },
+
+    postInfo(){
+      axios.post('api/v1/subchairman/upload', { 
+          content: this.content,
+          forumid: 1,
+
+      }).then((res) => {
+        let data = res.data
+        console.log(data);
+      })
+    }
+  },
+
+  created(){//模板已经编译 -- 执行请求数据的操作
+        this.getPeopleCount();
+        this.getListData();
+  },
+
+  components:{topline}
   }
 </script>
 
