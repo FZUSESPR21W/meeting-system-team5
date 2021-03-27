@@ -3,23 +3,23 @@
   <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
     <h3 class="login-title">请输入注册信息</h3>
     <el-form-item label="账号" prop="username">
-      <el-input type="text" placeholder="请输入手机号/邮箱" v-model="form.username"/>
+      <el-input type="text" placeholder="请输入手机号/邮箱" v-model="account"/>
     </el-form-item>
     <el-form-item label="密码" prop="password">
-      <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
+      <el-input type="password" placeholder="请输入密码" v-model="password"/>
     </el-form-item>
      <el-form-item>
      <el-checkbox-group v-model="checkList">
-    <el-checkbox label="分论坛1"></el-checkbox>
-    <el-checkbox label="分论坛2"></el-checkbox>
-    <el-checkbox label="分论坛3"></el-checkbox>
+    <el-checkbox label="1">分论坛1</el-checkbox>
+    <el-checkbox label="2">分论坛2</el-checkbox>
+    <el-checkbox label="3">分论坛3</el-checkbox>
    
   </el-checkbox-group>
 
-      <el-button id="register" type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
+      <el-button id="register" type="primary" v-on:click="register">注册</el-button>
     </el-form-item>
-              <router-link to="/login"><a id="bbs">已有帐号，我要登陆</a></router-link>
-         
+              <router-link to="/login"><a id="bbs">已有账号请登录</a></router-link>
+          
 
   </el-form>
     <el-dialog
@@ -32,19 +32,22 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
   </el-dialog>
-   <router-view></router-view>
+  <router-view></router-view>
 </div>
 </template>
 <script>
+import axios from 'axios'
   export default {
     name: "login",
     data() {
       return {
+        account: "",
+        password: "",
         form: {
           username: '',
           password: '',
         },
-     checkList: ['选中且禁用','复选框 A'],
+     checkList: [],
         // 表单验证，需要在 el-form-item 元素中增加 prop 属性
         rules: {
           username: [
@@ -60,17 +63,23 @@
       }
     },
     methods: {
-      onSubmit(formName) {
+      onSubmit() {
         // 为表单绑定验证功能
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
-            this.$router.push("/main/"+this.form.username);
-          } else {
-            this.dialogVisible = true;
-            return false;
+      },
+      register() {
+          for (let i = 0; i < this.checkList.length; i++) {
+              this.checkList[i] = parseInt(this.checkList[i])
           }
-        });
+          console.log(this.checkList);
+          let obj = {
+              account: this.account,
+              password: this.password,
+              forumid: this.checkList
+          }
+
+          axios.post('/api/v1/user/register',obj).then((res) => {
+              console.log(res);
+          })
       }
 
     }
