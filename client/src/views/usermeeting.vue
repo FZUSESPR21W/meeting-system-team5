@@ -6,8 +6,7 @@
           <a id="bbs">论坛列表</a>
           <div id="line1"></div>
           <img src="../assets/message.png" id="message">
-          <router-link to="/usermessage"><a id="bbs">消息列表</a></router-link>
-          <router-view></router-view>
+          <a id="msg">消息列表</a>
           <div id="line1"></div>
       </div>
       <div class="nav_right">
@@ -20,28 +19,13 @@
 
             <el-table-column
                 prop="bbs"
-                label="参加的论坛"
-                width="240">
-            </el-table-column>
-
-            <el-table-column
-                prop="name"
-                label="论坛主席"
-                width="240">
+                label="参加的论坛">
             </el-table-column>
 
             <el-table-column
                 prop="num"
-                label="会议人数"
-                width="240">
+                label="会议人数">
             </el-table-column>
-
-            <el-table-column
-                prop="date"
-                label="召开时间"
-                width="240">
-            </el-table-column>
-
         </el-table>
       </div>
       <router-view></router-view>
@@ -50,16 +34,36 @@
 
 <script>
 import topline from '../component/topline'
+import axios from 'axios'
 export default {
     data(){
         return{
             tableData:[{
-                bbs:"bbs1",
-                name:'小红',
-                num:'100',
-                date:'2021-3-27',
+                bbs:"第一次会议",
+                num:'',
+            },{
+                bbs:"第二次会议",
+                num:'',
+            },{
+                bbs:"第三次会议",
+                num:'',
             }]
         }
+    },
+    methods: {
+    getListData(){//网络请求数据
+    axios.get('/api/v1/forum/getnum').then((res) => {
+            let data = res.data
+            let i = 0
+            this.tableData.map((item) => {
+                item['num'] = data[i]
+                i++;
+            })
+        })
+    }
+    },
+    created(){
+        this.getListData()
     },
     name:'usermeeting',
     components: { topline },

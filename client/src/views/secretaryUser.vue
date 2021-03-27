@@ -19,13 +19,13 @@
 
           <!--          </el-aside>-->
           <el-main>
-            <el-table :data="tbleDate">
-              <el-table-column prop="username" label="用户ID" width="300">
+            <el-table :data="tableData">
+<!--               <el-table-column prop="username" label="用户ID" width="300">
+              </el-table-column> -->
+              <el-table-column prop="account" label="账号" width="300" align="center">
               </el-table-column>
-              <el-table-column prop="account" label="账号" width="300">
-              </el-table-column>
-              <el-table-column prop="register_date" label="注册时间">
-              </el-table-column>a
+<!--               <el-table-column prop="register_date" label="注册时间">
+              </el-table-column>a -->
             </el-table>
           </el-main>
         </el-container>
@@ -91,6 +91,7 @@
 
 <script>
 import Topline from '../component/topline'
+import axios from 'axios'
 export default {
   name: 'login',
   data () {
@@ -100,13 +101,25 @@ export default {
       register_date: '2017-04-30 10:20'
     }
     return {
-      tableDate: Array(20).fill(item)
+      tableData: []
     }
   },
   methods: {
-
+  getListData(){//网络请求数据
+      axios.get('/api/v1/secretary/getuser', {
+        params: {
+          forumid: 1
+        }
+      }).then((res) => {
+        this.tableData = res.data
+        console.log(this.tableData);
+      })
+    }
   },
-  components: { Topline }
+  components: { Topline },
+  created(){//模板已经编译 -- 执行请求数据的操作
+        this.getListData();
+  }
 }
 </script>
 
