@@ -7,9 +7,8 @@ const sequelize = new Sequelize(dbName,user,password,{
   logging: true,
   timezone: '+08:00',
   define:{
-    timestamps: true,
+    timestamps: false,
     paranoid: true,
-    createdAt: 'created_at',
     underscored: true
   }
 })
